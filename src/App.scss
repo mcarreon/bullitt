@@ -19,8 +19,12 @@ header {
 
   h1 {
     margin: 15px 0px 0px;
-    font-size: font-size(header-h1);
+    font-size: font-size(header-h1-mobile);
     font-family: "Franklin Gothic Book", sans-serif;
+
+    @include laptop {
+      font-size: font-size(header-h1-laptop);
+    }
   }
 
   nav {
@@ -28,11 +32,12 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30px;
+    top: 25px;
     right: 15px;
     cursor: pointer;
 
     @include laptop {
+      top: 30px;
       right: 30px;
     }
   }
@@ -59,20 +64,20 @@ header {
   h2 {
     font-family: "GT-Super", serif;
     font-size: font-size(talent-mobile);
-    margin: 25px 0px;
+    margin: 30px 0px;
 
     @include tablet-landscape {
       font-size: font-size(talent-tablet);
-      margin: 30px 0px;
+      margin: 35px 0px;
     }
 
     @include laptop {
       font-size: font-size(talent-laptop);
-      margin: 30px 0px;
+      margin: 45px 0px;
     }
 
     @include desktop {
-      margin: 45px 0px;
+      margin: 50px 0px;
     }
   }
 }
@@ -281,7 +286,7 @@ header {
 
 .video > footer {
   display: inherit;
-  flex-direction: column;
+  flex-direction: inherit;
   align-items: inherit;
   justify-content: inherit;
 
@@ -305,11 +310,11 @@ header {
 
   @include laptop {
     h2 {
+      margin: 15px 0px;
       font-size: font-size(video-footer-title-laptop);
     }
   
     p {
-      margin: 10px 0px;
       font-size: font-size(video-footer-sub-laptop);
       color: #7D765B;
     }

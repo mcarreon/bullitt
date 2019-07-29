@@ -52,6 +52,18 @@ header {
   width: 100%;
 }
 
+header h1 {
+  margin: 15px 0px 0px;
+  font-size: 30px;
+  font-family: "Franklin Gothic Book", sans-serif;
+}
+
+@media (min-width: 1199px) {
+  header h1 {
+    font-size: 40px;
+  }
+}
+
 header nav {
   display: inherit;
   -webkit-box-pack: center;
@@ -61,21 +73,16 @@ header nav {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 30px;
+  top: 25px;
   right: 15px;
   cursor: pointer;
 }
 
 @media (min-width: 1199px) {
   header nav {
+    top: 30px;
     right: 30px;
   }
-}
-
-header h1 {
-  margin: 15px 0px 0px;
-  font-size: 40px;
-  font-family: "Franklin Gothic Book", sans-serif;
 }
 
 .home, .video {
@@ -112,26 +119,26 @@ header h1 {
 .home > section h2 {
   font-family: "GT-Super", serif;
   font-size: 75px;
-  margin: 25px 0px;
+  margin: 30px 0px;
 }
 
 @media (min-width: 899px) {
   .home > section h2 {
     font-size: 100px;
-    margin: 30px 0px;
+    margin: 35px 0px;
   }
 }
 
 @media (min-width: 1199px) {
   .home > section h2 {
     font-size: 130px;
-    margin: 30px 0px;
+    margin: 45px 0px;
   }
 }
 
 @media (min-width: 1799px) {
   .home > section h2 {
-    margin: 45px 0px;
+    margin: 50px 0px;
   }
 }
 
@@ -240,23 +247,18 @@ header h1 {
       flex-wrap: wrap;
 }
 
-.video > section div:nth-child(1), .video > section div:nth-child(4) {
-  font-size: 12px;
-  font-family: "Franklin Gothic MedCd", sans-serif;
-}
-
-.video > section div:nth-child(1) {
+.video > section div.video-talent {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
   margin-left: 15px;
 }
 
-.video > section div:nth-child(1) span {
+.video > section div.video-talent span {
   color: #7D765B;
 }
 
-.video > section div:nth-child(1) p {
+.video > section div.video-talent p {
   text-transform: uppercase;
 }
 
@@ -268,24 +270,29 @@ header h1 {
   margin: 0;
 }
 
-.video > section div:nth-child(4) {
+.video > section div.video-close {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   margin-right: 15px;
 }
 
-.video > section div:nth-child(4) p {
+.video > section div.video-close p {
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
 }
 
-.video > section div:nth-child(4) :hover {
+.video > section div.video-close :hover {
   opacity: .6;
 }
 
+.video > section div.video-talent, .video > section div.video-close {
+  font-size: 12px;
+  font-family: "Franklin Gothic MedCd", sans-serif;
+}
+
 @media (min-width: 599px) {
-  .video > section div:nth-child(1), .video > section div:nth-child(4) {
+  .video > section div.video-talent, .video > section div.video-close {
     margin-top: 15px;
   }
 }
@@ -303,16 +310,7 @@ header h1 {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .video > section div:nth-child(1), .video > section div:nth-child(4) {
-    -webkit-transform: rotate(270deg) translate3d(0, 0, 0);
-            transform: rotate(270deg) translate3d(0, 0, 0);
-    -webkit-transform-origin: 48% 53%;
-  }
-  .video > section div:nth-child(1) p, .video > section div:nth-child(4) p {
-    line-height: 1;
-    font-size: 15px;
-  }
-  .video > section div:nth-child(1) {
+  .video > section div.video-talent {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
@@ -328,12 +326,21 @@ header h1 {
     min-width: 0%;
     margin: 0px 30px;
   }
-  .video > section div:nth-child(4) {
+  .video > section div.video-close {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     width: 25px;
     margin-top: 0px;
+  }
+  .video > section div.video-talent, .video > section div.video-close {
+    -webkit-transform: rotate(270deg) translate3d(0, 0, 0);
+            transform: rotate(270deg) translate3d(0, 0, 0);
+    -webkit-transform-origin: 48% 53%;
+  }
+  .video > section div.video-talent p, .video > section div.video-close p {
+    line-height: 1;
+    font-size: 15px;
   }
 }
 
@@ -380,10 +387,10 @@ header h1 {
 
 .video > footer {
   display: inherit;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
+      -ms-flex-direction: inherit;
+          flex-direction: inherit;
   -webkit-box-align: inherit;
       -ms-flex-align: inherit;
           align-items: inherit;
@@ -412,10 +419,10 @@ header h1 {
 
 @media (min-width: 1199px) {
   .video > footer h2 {
+    margin: 15px 0px;
     font-size: 40px;
   }
   .video > footer p {
-    margin: 10px 0px;
     font-size: 20px;
     color: #7D765B;
   }
