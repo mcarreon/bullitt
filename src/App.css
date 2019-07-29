@@ -1,33 +1,182 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "GT Super Bold";
+  src: url("./assets/fonts/GTSuper/GT-Super-Display-Bold.eot");
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  margin: 0;
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.home, .video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+header {
+  display: inherit;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+header nav {
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  margin: 10px 0px 0px;
+  font-size: 30px;
+}
+
+.home > section {
+  display: inherit;
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
+      -ms-flex-direction: inherit;
+          flex-direction: inherit;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  width: 100%;
+}
+
+.home > section h2 {
+  font-size: 75px;
+  margin: 25px 0px;
+}
+
+@media (min-width: 899px) {
+  .home > section h2 {
+    font-size: 100px;
+    margin: 30px 0px;
   }
 }
+
+@media (min-width: 1199px) {
+  .home > section h2 {
+    font-size: 130px;
+    margin: 30px 0px;
+  }
+}
+
+@media (min-width: 1799px) {
+  .home > section h2 {
+    margin: 45px 0px;
+  }
+}
+
+.home > section > .home-grid {
+  width: 86%;
+  margin-bottom: 35px;
+}
+
+.home > section > .home-grid .grid-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home > section > .home-grid .grid-item h3 {
+  font-size: 35px;
+}
+
+@media (min-width: 899px) {
+  .home > section > .home-grid {
+    margin-bottom: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .home > section > .home-grid .grid-item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1199px) {
+  .home > section > .home-grid {
+    margin-bottom: 85px;
+  }
+  .home > section > .home-grid .grid-item {
+    height: 270px;
+  }
+  .home > section > .home-grid .grid-item h3 {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1799px) {
+  .home > section > .home-grid {
+    margin-bottom: 130px;
+  }
+  .home > section > .home-grid .grid-item {
+    height: 350px;
+  }
+}
+
+.video > section {
+  display: inherit;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.video > footer {
+  display: inherit;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+}
+/*# sourceMappingURL=App.css.map */

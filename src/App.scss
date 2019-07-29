@@ -1,0 +1,156 @@
+$GT-Bold: "./assets/fonts/GT Super/GT-Super-Display-Bold";
+
+$font-sizes: (
+  grid-mobile: 35px,
+  grid-desktop: 40px,
+);
+
+@function font-size($font-size) {
+  @return map-get($font-sizes, $font-size );
+};
+
+@mixin tablet-portrait {
+  @media (min-width: 599px) { @content };
+};
+
+@mixin tablet-landscape {
+  @media (min-width: 899px) { @content };
+};
+
+@mixin laptop {
+  @media (min-width: 1199px) { @content };
+};
+
+@mixin desktop {
+  @media (min-width: 1799px) { @content };
+};
+
+@font-face{
+  font-family: "GT Super Bold";
+  src: url("./assets/fonts/GTSuper/GT-Super-Display-Bold.eot");
+}
+  
+
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+.home, .video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+header {
+  display: inherit;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+
+  nav {
+    display: none;
+    align-items: center;
+  }
+
+  h1 {
+    margin: 10px 0px 0px;
+    font-size: 30px;
+  }
+}
+
+.home > section {
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+  align-items: inherit; 
+  width: 100%;
+  
+  h2 {
+    font-size: 75px;
+    margin: 25px 0px;
+
+    @include tablet-landscape {
+      font-size: 100px;
+      margin: 30px 0px;
+    }
+
+    @include laptop {
+      font-size: 130px;
+      margin: 30px 0px;
+    }
+
+    @include desktop {
+      margin: 45px 0px;
+    }
+  }
+}
+
+.home > section > .home-grid {
+  width: 86%;
+  margin-bottom: 35px;
+
+  .grid-item {
+    display: flex;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      font-size: font-size(grid-mobile);
+    }
+  }
+
+  @include tablet-landscape {
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    .grid-item {
+      width: 50%;
+    }
+  }
+
+  @include laptop {
+    margin-bottom: 85px;
+
+    .grid-item {
+      height: 270px;
+
+      h3 {
+        font-size: font-size(grid-desktop);
+      }
+    }
+  }
+
+  @include desktop {
+    margin-bottom: 130px;
+
+    .grid-item {
+      height: 350px;
+    }
+  }
+}
+
+.video > section {
+  display: inherit;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.video > footer {
+  display: inherit;
+  flex-direction: column;
+  align-items: inherit;
+  justify-content: inherit;
+  
+  p {
+
+  }
+}
