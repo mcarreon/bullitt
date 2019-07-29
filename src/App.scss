@@ -1,35 +1,4 @@
-$GT-Bold: "./assets/fonts/GT Super/GT-Super-Display-Bold";
-
-$font-sizes: (
-  grid-mobile: 35px,
-  grid-desktop: 40px,
-);
-
-@function font-size($font-size) {
-  @return map-get($font-sizes, $font-size );
-};
-
-@mixin tablet-portrait {
-  @media (min-width: 599px) { @content };
-};
-
-@mixin tablet-landscape {
-  @media (min-width: 899px) { @content };
-};
-
-@mixin laptop {
-  @media (min-width: 1199px) { @content };
-};
-
-@mixin desktop {
-  @media (min-width: 1799px) { @content };
-};
-
-@font-face{
-  font-family: "GT Super Bold";
-  src: url("./assets/fonts/GTSuper/GT-Super-Display-Bold.eot");
-}
-  
+@import './css/constants';
 
 body {
   margin: 0;
@@ -37,11 +6,9 @@ body {
   color: white;
 }
 
-.home, .video {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
+a { 
+  color: white;
+  text-decoration: none; /* no underline */
 }
 
 header {
@@ -50,15 +17,36 @@ header {
   justify-content: center;
   width: 100%;
 
-  nav {
-    display: none;
-    align-items: center;
+  h1 {
+    margin: 15px 0px 0px;
+    font-size: font-size(header-h1);
+    font-family: "Franklin Gothic Book", sans-serif;
   }
 
-  h1 {
-    margin: 10px 0px 0px;
-    font-size: 30px;
+  nav {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    cursor: pointer;
+
+    @include laptop {
+      right: 30px;
+    }
   }
+
+  
+}
+
+// Start Home Page
+
+.home, .video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
 }
 
 .home > section {
@@ -69,16 +57,17 @@ header {
   width: 100%;
   
   h2 {
-    font-size: 75px;
+    font-family: "GT-Super", serif;
+    font-size: font-size(talent-mobile);
     margin: 25px 0px;
 
     @include tablet-landscape {
-      font-size: 100px;
+      font-size: font-size(talent-tablet);
       margin: 30px 0px;
     }
 
     @include laptop {
-      font-size: 130px;
+      font-size: font-size(talent-laptop);
       margin: 30px 0px;
     }
 
@@ -92,17 +81,35 @@ header {
   width: 86%;
   margin-bottom: 35px;
 
+  a {
+    height: 250px;
+    display: block;
+    transition-duration: .5s;
+
+    :hover {
+      opacity: .8;
+
+      h3 {
+        opacity: 1;
+      }
+    }
+  }
+
   .grid-item {
     display: flex;
-    height: 250px;
+    height: 100%;
     background-position: center;
     background-size: cover;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    transition-duration: .5s;
 
     h3 {
       font-size: font-size(grid-mobile);
+      font-family: "GT-Bold", serif;
     }
+
   }
 
   @include tablet-landscape {
@@ -111,7 +118,7 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     
-    .grid-item {
+    a {
       width: 50%;
     }
   }
@@ -119,8 +126,12 @@ header {
   @include laptop {
     margin-bottom: 85px;
 
-    .grid-item {
+    a {
       height: 270px;
+
+      .grid-item {
+        height: 270px;
+      }
 
       h3 {
         font-size: font-size(grid-desktop);
@@ -131,17 +142,141 @@ header {
   @include desktop {
     margin-bottom: 130px;
 
-    .grid-item {
-      height: 350px;
+    a {
+      height: 375px;
+
+      .grid-item {
+        height: 375px;
+      }
     }
   }
 }
 
+// Start Video Page
+
 .video > section {
+  width: 100%;
   display: inherit;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  div.video-talent {
+    order: 1;
+    margin-left: 15px;
+    span {
+      color: #7D765B;
+    }
+
+    p {
+      text-transform: uppercase;
+    }
+  }
+
+  div.video-player {
+    order: 3;
+    min-width: 100%;
+    margin: 0;
+  }
+
+  div.video-close {
+    order: 2;
+    margin-right: 15px;
+    
+    p {
+      transition-duration: .3s;
+    }
+
+    :hover {
+      opacity: .6;
+    }
+  }
+
+  div.video-talent, div.video-close {
+    font-size: font-size(video-sub-mobile);
+    font-family: "Franklin Gothic MedCd", sans-serif;
+  }
+
+  @include tablet-portrait {
+    div.video-talent, div.video-close {
+      margin-top: 15px;
+    }
+  }
+
+  @include laptop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    div.video-talent {
+      order: 1;
+      width: 25px;
+      overflow: visible;
+      white-space: nowrap;
+      margin-top: 75px;
+    }
+
+    div.video-player {
+      order: 2;
+      min-width: 0%;
+      margin: 0px 30px;
+    }
+
+    div.video-close {
+      order: 3;
+      width: 25px;
+      margin-top: 0px;
+    }
+    
+    div.video-talent, div.video-close {
+      transform: rotate(270deg) translate3d( 0, 0, 0);
+        -webkit-transform-origin: 48% 53%;
+      p {
+        line-height: 1;
+        font-size: font-size(video-sub-laptop);
+      }
+    }
+  }
+
+  @include desktop {
+    div.video-player {
+      margin: 0px 50px;
+    }
+  }
+
+
+  .video-player {
+    position: relative;
+    height: 0;
+    margin: 0 15px;
+    padding-bottom: 48.25%;
+    overflow: hidden;
+    width: 86%;
+    
+
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @include tablet-portrait {
+      padding-bottom: 46.25%;
+    }
+
+    @include laptop {
+      padding-bottom: 40.25%;
+    }
+
+    @include laptop-xl {
+      padding-bottom: 37.25%;
+    }
+
+    
+  }
 }
 
 .video > footer {
@@ -149,8 +284,35 @@ header {
   flex-direction: column;
   align-items: inherit;
   justify-content: inherit;
-  
-  p {
 
+  p {
+    color: #7D765B;
+    margin: 10px 0px;
+    font-size: font-size(video-footer-sub-mobile);
+    font-family: "GT-Medium", serif;
   }
+
+  h2 {
+    margin: 10px 0px;
+    font-family: "GT-Bold", serif;
+  }
+
+  @include tablet-portrait {
+    p {
+      font-size: font-size(video-footer-sub-tablet);
+    }
+  }
+
+  @include laptop {
+    h2 {
+      font-size: font-size(video-footer-title-laptop);
+    }
+  
+    p {
+      margin: 10px 0px;
+      font-size: font-size(video-footer-sub-laptop);
+      color: #7D765B;
+    }
+  }
+  
 }

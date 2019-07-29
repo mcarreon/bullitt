@@ -1,12 +1,81 @@
 @font-face {
-  font-family: "GT Super Bold";
-  src: url("./assets/fonts/GTSuper/GT-Super-Display-Bold.eot");
+  font-family: "GT-Super";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Super.eot") format("eot"), url("assets/fonts/GTSuper/GT-Super-Display-Super.ttf") format("ttf"), url("assets/fonts/GTSuper/GT-Super-Display-Super.woff") format("woff"), url("assets/fonts/GTSuper/GT-Super-Display-Super.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "GT-Bold";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Bold.eot") format("eot"), url("assets/fonts/GTSuper/GT-Super-Display-Bold.ttf") format("ttf"), url("assets/fonts/GTSuper/GT-Super-Display-Bold.woff") format("woff"), url("assets/fonts/GTSuper/GT-Super-Display-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "GT-Medium";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Medium.eot") format("eot"), url("assets/fonts/GTSuper/GT-Super-Display-Medium.ttf") format("ttf"), url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff") format("woff"), url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "GT-Medium";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Medium.eot") format("eot"), url("assets/fonts/GTSuper/GT-Super-Display-Medium.ttf") format("ttf"), url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff") format("woff"), url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Franklin Gothic MedCd";
+  src: url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdMedCd/ITCFranklinGothicStd-MdCd.eot") format("eot"), url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdMedCd/ITCFranklinGothicStd-MdCd.woff") format("woff"), url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdMedCd/ITCFranklinGothicStd-MdCd.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Franklin Gothic Book";
+  src: url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdBook/ITCFranklinGothicStd-Book.eot") format("eot"), url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdBook/ITCFranklinGothicStd-Book.woff") format("woff"), url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdBook/ITCFranklinGothicStd-Book.woff2") format("woff2");
 }
 
 body {
   margin: 0;
   background-color: black;
   color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  /* no underline */
+}
+
+header {
+  display: inherit;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+header nav {
+  display: inherit;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  cursor: pointer;
+}
+
+@media (min-width: 1199px) {
+  header nav {
+    right: 30px;
+  }
+}
+
+header h1 {
+  margin: 15px 0px 0px;
+  font-size: 40px;
+  font-family: "Franklin Gothic Book", sans-serif;
 }
 
 .home, .video {
@@ -25,30 +94,6 @@ body {
           align-items: center;
 }
 
-header {
-  display: inherit;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-}
-
-header nav {
-  display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-header h1 {
-  margin: 10px 0px 0px;
-  font-size: 30px;
-}
-
 .home > section {
   display: inherit;
   -webkit-box-orient: inherit;
@@ -65,6 +110,7 @@ header h1 {
 }
 
 .home > section h2 {
+  font-family: "GT-Super", serif;
   font-size: 75px;
   margin: 25px 0px;
 }
@@ -94,11 +140,26 @@ header h1 {
   margin-bottom: 35px;
 }
 
+.home > section > .home-grid a {
+  height: 250px;
+  display: block;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+
+.home > section > .home-grid a :hover {
+  opacity: .8;
+}
+
+.home > section > .home-grid a :hover h3 {
+  opacity: 1;
+}
+
 .home > section > .home-grid .grid-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 250px;
+  height: 100%;
   background-position: center;
   background-size: cover;
   -webkit-box-align: center;
@@ -107,10 +168,14 @@ header h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
 }
 
 .home > section > .home-grid .grid-item h3 {
   font-size: 35px;
+  font-family: "GT-Bold", serif;
 }
 
 @media (min-width: 899px) {
@@ -126,7 +191,7 @@ header h1 {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .home > section > .home-grid .grid-item {
+  .home > section > .home-grid a {
     width: 50%;
   }
 }
@@ -135,10 +200,13 @@ header h1 {
   .home > section > .home-grid {
     margin-bottom: 85px;
   }
-  .home > section > .home-grid .grid-item {
+  .home > section > .home-grid a {
     height: 270px;
   }
-  .home > section > .home-grid .grid-item h3 {
+  .home > section > .home-grid a .grid-item {
+    height: 270px;
+  }
+  .home > section > .home-grid a h3 {
     font-size: 40px;
   }
 }
@@ -147,12 +215,16 @@ header h1 {
   .home > section > .home-grid {
     margin-bottom: 130px;
   }
-  .home > section > .home-grid .grid-item {
-    height: 350px;
+  .home > section > .home-grid a {
+    height: 375px;
+  }
+  .home > section > .home-grid a .grid-item {
+    height: 375px;
   }
 }
 
 .video > section {
+  width: 100%;
   display: inherit;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -161,9 +233,149 @@ header h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.video > section div:nth-child(1), .video > section div:nth-child(4) {
+  font-size: 12px;
+  font-family: "Franklin Gothic MedCd", sans-serif;
+}
+
+.video > section div:nth-child(1) {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-left: 15px;
+}
+
+.video > section div:nth-child(1) span {
+  color: #7D765B;
+}
+
+.video > section div:nth-child(1) p {
+  text-transform: uppercase;
+}
+
+.video > section div.video-player {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  min-width: 100%;
+  margin: 0;
+}
+
+.video > section div:nth-child(4) {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  margin-right: 15px;
+}
+
+.video > section div:nth-child(4) p {
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+
+.video > section div:nth-child(4) :hover {
+  opacity: .6;
+}
+
+@media (min-width: 599px) {
+  .video > section div:nth-child(1), .video > section div:nth-child(4) {
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 1199px) {
+  .video > section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .video > section div:nth-child(1), .video > section div:nth-child(4) {
+    -webkit-transform: rotate(270deg) translate3d(0, 0, 0);
+            transform: rotate(270deg) translate3d(0, 0, 0);
+    -webkit-transform-origin: 48% 53%;
+  }
+  .video > section div:nth-child(1) p, .video > section div:nth-child(4) p {
+    line-height: 1;
+    font-size: 15px;
+  }
+  .video > section div:nth-child(1) {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 25px;
+    overflow: visible;
+    white-space: nowrap;
+    margin-top: 75px;
+  }
+  .video > section div.video-player {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    min-width: 0%;
+    margin: 0px 30px;
+  }
+  .video > section div:nth-child(4) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: 25px;
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 1799px) {
+  .video > section div.video-player {
+    margin: 0px 50px;
+  }
+}
+
+.video > section .video-player {
+  position: relative;
+  height: 0;
+  margin: 0 15px;
+  padding-bottom: 48.25%;
+  overflow: hidden;
+  width: 86%;
+}
+
+.video > section .video-player iframe, .video > section .video-player object, .video > section .video-player embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 599px) {
+  .video > section .video-player {
+    padding-bottom: 46.25%;
+  }
+}
+
+@media (min-width: 1199px) {
+  .video > section .video-player {
+    padding-bottom: 40.25%;
+  }
+}
+
+@media (min-width: 1439px) {
+  .video > section .video-player {
+    padding-bottom: 37.25%;
+  }
 }
 
 .video > footer {
@@ -178,5 +390,34 @@ header h1 {
   -webkit-box-pack: inherit;
       -ms-flex-pack: inherit;
           justify-content: inherit;
+}
+
+.video > footer p {
+  color: #7D765B;
+  margin: 10px 0px;
+  font-size: 14px;
+  font-family: "GT-Medium", serif;
+}
+
+.video > footer h2 {
+  margin: 10px 0px;
+  font-family: "GT-Bold", serif;
+}
+
+@media (min-width: 599px) {
+  .video > footer p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1199px) {
+  .video > footer h2 {
+    font-size: 40px;
+  }
+  .video > footer p {
+    margin: 10px 0px;
+    font-size: 20px;
+    color: #7D765B;
+  }
 }
 /*# sourceMappingURL=App.css.map */

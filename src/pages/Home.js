@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import nav from '../assets/hamburger.png';
 import aw from '../assets/photos/andersonwright.png';
 import al from '../assets/photos/anthonyleonardi.png';
@@ -48,7 +49,7 @@ export default class Home extends Component {
         <header>
           <h1>BULLITT</h1>
           <nav>
-            <img src={nav}></img>
+            <img src={nav} alt="nav hamburger"></img>
           </nav>
         </header>
         <section>
@@ -61,11 +62,17 @@ export default class Home extends Component {
               let backgroundStyle = {
                 backgroundImage: `url(${item.img})`
               }
-
+              let linkPath = item.name.replace(' ', '');
+              
               return (
-                <div className="grid-item" style={backgroundStyle}>
-                  <h3>{item.name}</h3>
-                </div>
+                <Link to={{
+                  pathname: `/video/${linkPath}`,
+                  state: { name: item.name }
+                }} key="linkPath">
+                  <div className="grid-item" style={backgroundStyle}>
+                    <h3>{item.name}</h3>
+                  </div>
+                </Link>
               );
             })}
           </div>

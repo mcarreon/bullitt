@@ -1,0 +1,85 @@
+@font-face {
+  font-family:"GT-Super";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Super.eot") format("eot"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Super.ttf") format("ttf"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Super.woff") format("woff"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Super.woff2") format("woff2");
+};
+
+@font-face {
+  font-family: "GT-Bold";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Bold.eot") format("eot"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Bold.ttf") format("ttf"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Bold.woff") format("woff"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Bold.woff2") format("woff2");
+};
+
+@font-face {
+  font-family: "GT-Medium";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Medium.eot") format("eot"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Medium.ttf") format("ttf"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff") format("woff"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff2") format("woff2");
+};
+
+@font-face {
+  font-family: "GT-Medium";
+  src: url("assets/fonts/GTSuper/GT-Super-Display-Medium.eot") format("eot"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Medium.ttf") format("ttf"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff") format("woff"),
+  url("assets/fonts/GTSuper/GT-Super-Display-Medium.woff2") format("woff2");
+};
+
+@font-face {
+  font-family: "Franklin Gothic MedCd";
+  src: url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdMedCd/ITCFranklinGothicStd-MdCd.eot") format("eot"),
+  url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdMedCd/ITCFranklinGothicStd-MdCd.woff") format("woff"),
+  url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdMedCd/ITCFranklinGothicStd-MdCd.woff2") format("woff2");
+};
+
+@font-face {
+  font-family: "Franklin Gothic Book";
+  src: url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdBook/ITCFranklinGothicStd-Book.eot") format("eot"),
+  url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdBook/ITCFranklinGothicStd-Book.woff") format("woff"),
+  url("assets/fonts/ItcFranklinGothicStd/ITCFranklinGothicStdBook/ITCFranklinGothicStd-Book.woff2") format("woff2");
+};
+
+$font-sizes: (
+  grid-mobile: 35px,
+  grid-desktop: 40px,
+  header-h1: 40px,
+  talent-mobile: 75px,
+  talent-tablet: 100px,
+  talent-laptop: 130px,
+  video-sub-mobile: 12px,
+  video-sub-laptop: 15px,
+  video-footer-title-laptop: 40px,
+  video-footer-sub-mobile: 14px,
+  video-footer-sub-tablet: 16px,
+  video-footer-sub-laptop: 20px,
+);
+
+@function font-size($font-size) {
+  @return map-get($font-sizes, $font-size );
+};
+
+@mixin tablet-portrait {
+  @media (min-width: 599px) { @content };
+};
+
+@mixin tablet-landscape {
+  @media (min-width: 899px) { @content };
+};
+
+@mixin laptop {
+  @media (min-width: 1199px) { @content };
+};
+
+@mixin laptop-xl {
+  @media (min-width: 1439px) { @content };
+}
+
+@mixin desktop {
+  @media (min-width: 1799px) { @content };
+};
+  
